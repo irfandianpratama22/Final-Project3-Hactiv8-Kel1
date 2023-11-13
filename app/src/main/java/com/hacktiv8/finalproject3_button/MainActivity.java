@@ -200,22 +200,35 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 process = angkaMasuk.getText().toString();
 
-
-                process = process.replaceAll("x","*");
+                process = process.replaceAll("x", "*");
                 process = process.replaceAll("%", "/100");
-                process = process.replaceAll("÷","/");
+                process = process.replaceAll("÷", "/");
 
                 Context rhino = Context.enter();
                 rhino.setOptimizationLevel(-1);
-                String FinalResult="";
+                String finalResult = "";
 
                 try {
                     Scriptable scriptable = rhino.initSafeStandardObjects();
-                    FinalResult = rhino.evaluateString(scriptable, process, "javascript code", 1, null).toString();
-                }catch (Exception e){
-                    FinalResult="0";
+                    finalResult = rhino.evaluateString(scriptable, process, "javascript code", 1, null).toString();
+                } catch (Exception e) {
+                    finalResult = "0";
                 }
-                angkaKeluar.setText(FinalResult);
+
+
+                try {
+                    double result = Double.parseDouble(finalResult);
+
+                    if (result % 1 == 0) {
+
+                        angkaKeluar.setText(String.valueOf((long) result));
+                    } else {
+
+                        angkaKeluar.setText(finalResult);
+                    }
+                } catch (NumberFormatException e) {
+                    angkaKeluar.setText(finalResult);
+                }
             }
         });
     }
