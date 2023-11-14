@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.hacktiv8.finalproject3_button"
+    namespace = "com.hacktiv8.finalproject3_kalkulator"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.hacktiv8.finalproject3_button"
+        applicationId = "com.hacktiv8.finalproject3_kalkulator"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

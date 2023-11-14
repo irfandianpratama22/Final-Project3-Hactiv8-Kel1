@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Final Project 3 - Button"
+rootProject.name = "FinalProject3_kalkulator "
 include(":app")
  
